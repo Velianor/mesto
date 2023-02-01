@@ -1,0 +1,18 @@
+.element__button {
+    background-image: url('../../../images/Vectorlike.svg');
+    background-repeat: no-repeat;
+   border: none;
+   background-color: white;
+   width: 22px;
+   height: 19px;
+   transition: 0.4s;
+}
+
+.element__button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.element__button_active {
+    background-image: url('../../../images/Unionlike-aktive.svg')
+}

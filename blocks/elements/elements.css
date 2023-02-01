@@ -1,0 +1,17 @@
+.elements {
+    margin: 46px auto 0 auto;
+    max-width: 880px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 17px;
+}
+
+@media (max-width: 880px) {
+    .elements{
+        margin: 36px auto 0 auto;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        justify-content: center;
+        max-width: 282px;
+    }
+}

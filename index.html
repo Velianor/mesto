@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img src="./images/Vectorlogo.svg" alt="логотип" class="header__logo" />
+    </header>
+    <main>
+      <section class="profile">
+        <div>
+          <img
+            src="./images/imagekusto.jpg"
+            alt="аватар"
+            class="profile__avatar"
+          />
+        </div>
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-button"></button>
+          <p class="profile__description">Исследователь океана</p>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1088404-unsplashkarachaevsk.jpg"
+            alt="Карачаевск"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1404681-unsplashelbrus.png"
+            alt="Гора"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1556355-unsplashdombai.png"
+            alt="Домбай"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1404681-unsplashelbrus.png"
+            alt="Гора"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1556355-unsplashdombai.png"
+            alt="Домбай"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img
+            src="./images/kirill-pershin-1088404-unsplashkarachaevsk.jpg"
+            alt="Карачаевск"
+            class="element__img"
+          />
+          <div class="element__info">
+            <h2 class="element__title">Карачаево-Черкесская Республика</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy 2023 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form">
+          <input type="text" class="popup__input popup__input-name" />
+          <input type="text" class="popup__input popup__input-description" />
+          <button class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <script src="./vendor/script.js"></script>
+  </body>
+</html>
