@@ -1,7 +1,7 @@
 .profile__info {
     display: flex;
     margin-right: auto;
-    margin-left: 22px;
+    margin-left: 31px;
     max-height: 73px;
     max-width: 336px;
     flex-wrap: wrap;
@@ -12,7 +12,7 @@
     .profile__info {
        max-height: 54px;
        max-width: 282px;
-       margin: 10px auto 36px auto;
+       margin: 25px auto 36px auto;
        justify-content: center;
     }  
 }

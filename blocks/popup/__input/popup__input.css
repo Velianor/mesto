@@ -6,15 +6,13 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    padding-bottom: 11px;
 }
 
 @media (max-width: 880px) {
     .popup__input {
-        margin: 0 22px 30px 22px;
+        margin: 0 22px 28px 22px;
         max-width: 238px;
     }    
 }
 
-.popup__input-name{}
-
-.popup__input-description{}

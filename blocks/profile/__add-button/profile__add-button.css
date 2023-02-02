@@ -1,7 +1,6 @@
 .profile__add-button {
     width: 150px;
     height: 50px;
-    background-color: black;
     background-image: url('../../../images/Vectoradd.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -9,6 +8,7 @@
     box-sizing: border-box;
     border-radius: 2px;
     transition: 0.4s;
+    background-color: transparent;
 }
 
 .profile__add-button:hover {
@@ -19,7 +19,6 @@
 @media (max-width: 880px)  {
     .profile__add-button {
         width: 282px;
-        height: 50px;
         background-size: 16px 16px;
     }  
 }

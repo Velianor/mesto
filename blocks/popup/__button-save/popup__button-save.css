@@ -3,7 +3,7 @@
     background-color: black;
     width: 358px;
     height: 50px;
-    margin: 18px 36px 37px;
+    margin: 14px 36px 37px;
     border: none;
     padding: 0;
     transition: 0.4s;
@@ -11,10 +11,11 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    border-radius: 2px;
 }
 
 .popup__button-save:hover {
-    opacity: 0.6;
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
 
