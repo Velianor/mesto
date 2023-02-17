@@ -109,7 +109,7 @@ popups.forEach((popup)=>{
     if(evt.target.classList.contains('popup_opened')){
       close(popup);
     }
-    if(evt.target.classList.contains('popup_close')){
+    if(evt.target.classList.contains('popup__button-close')){
       close(popup);
     }
   })
