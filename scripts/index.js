@@ -54,7 +54,7 @@ function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
 }
 
-//Хотелось бы подробнее, о том как вместо вводимых параметров сделать один объект. 
+
 function createCard(name, link){
   const element = cardTemplate.cloneNode(true);
   const imgOpen = element.querySelector('.element__img');
