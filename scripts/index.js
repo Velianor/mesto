@@ -47,6 +47,7 @@ const initialCards = [
 
 function openPopup(popupElement) {
   popupElement.classList.add("popup_opened");
+  document.addEventListener('keydown', closeEsc)
 
 }
 
@@ -54,6 +55,11 @@ function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
 }
 
+function closeEsc(evt) {
+  if(evt.key === 'Escape'){
+    closePopup(document.querySelector('.popup_opened'))
+  }
+}
 
 function createCard(name, link){
   const element = cardTemplate.cloneNode(true);
@@ -108,11 +114,9 @@ function handleProfileFormSubmit(evt) {
 
 popups.forEach((popup)=>{
   popup.addEventListener('click', (evt)=>{
-    if(evt.target.classList.contains('popup_opened')){
+    if(evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__button-close')){
       closePopup(popup);
-    } else if(evt.target.classList.contains('popup__button-close')){
-      closePopup(popup);
-    }
+    } 
   })
 })
 
