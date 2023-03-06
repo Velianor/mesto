@@ -53,6 +53,7 @@ function openPopup(popupElement) {
 
 function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeEsc)
 }
 
 function closeEsc(evt) {
@@ -130,6 +131,8 @@ buttonEdit.addEventListener("click", function(){
 });
 buttonAdd.addEventListener("click", function(){
   openPopup(popupNewCard)
+  popupNewCard.querySelector('.popup__button-save').setAttribute('disabled', true);
+  popupNewCard.querySelector('.popup__button-save').classList.add('popup__button-save_disabled')
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -137,6 +140,6 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 cardNewForm.addEventListener('submit', function (evt){
   evt.preventDefault();
   cardsContainer.prepend(createCard(inputTitle.value, inputImage.value));
-  evt.target.reset()
   closePopup(popupNewCard)
+  evt.target.reset()
 })
