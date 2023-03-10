@@ -11,6 +11,7 @@ const popupProfile = document.querySelector('.popup_type_profile')
 const popupNewCard = document.querySelector('.popup_type_new-card')
 const cardsContainer = document.querySelector('.elements');
 const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
+const buttonSave = popupNewCard.querySelector('.popup__button-save')
 const profileForm = document.querySelector('form[name="profileForm"]')
 const cardNewForm = document.querySelector('form[name="newCardForm"]')
 const popupImageContainer = document.querySelector('.popup_type_image-popup')
@@ -131,8 +132,8 @@ buttonEdit.addEventListener("click", function(){
 });
 buttonAdd.addEventListener("click", function(){
   openPopup(popupNewCard)
-  popupNewCard.querySelector('.popup__button-save').setAttribute('disabled', true);
-  popupNewCard.querySelector('.popup__button-save').classList.add('popup__button-save_disabled')
+  buttonSave.setAttribute('disabled', true);
+  buttonSave.classList.add('popup__button-save_disabled')
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
