@@ -1,5 +1,6 @@
 import { initialCards } from './content.js';
 import {Card} from './Card.js';
+import { FormValidator, enableValidation} from './FormValidator.js'
 
 const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -13,13 +14,15 @@ const inputTitle = document.querySelector('.popup__input_type_title')
 const popupProfile = document.querySelector('.popup_type_profile')
 const popupNewCard = document.querySelector('.popup_type_new-card')
 const cardsContainer = document.querySelector('.elements');
-const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
 const buttonSave = popupNewCard.querySelector('.popup__button-save')
 const profileForm = document.querySelector('form[name="profileForm"]')
 const cardNewForm = document.querySelector('form[name="newCardForm"]')
 const popupImageContainer = document.querySelector('.popup_type_image-popup')
 const popupImage = document.querySelector('.popup__image')
 const popupImageTitle = document.querySelector('.popup__image-title') 
+
+const profileValidator = new FormValidator(enableValidation, profileForm);
+const cardValidator =  new FormValidator(enableValidation, cardNewForm);
 
 
 function openPopup(popupElement) {
@@ -91,7 +94,12 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 cardNewForm.addEventListener('submit', function (evt){
   evt.preventDefault();
-  cardsContainer.prepend(createCard(inputTitle.value, inputImage.value));
+
+  const cardNew = {name: inputTitle.value, link: inputImage.value}
+  cardsContainer.prepend(createCard(cardNew));
   closePopup(popupNewCard)
   evt.target.reset()
 })
+
+profileValidator.enableValidation();
+cardValidator.enableValidation();
