@@ -16,7 +16,10 @@ export class Card{
     }
 
     _setEventListener(){
-        this._element.querySelector('.element__button').addEventListener('click', () => {
+        this._elementButton = this._element.querySelector('.element__button');
+        this._elementImg = this._element.querySelector('.element__img');
+
+        this._elementButton.addEventListener('click', () => {
             this._handleLikeClick();
         })
         
@@ -24,13 +27,13 @@ export class Card{
             this._handleDeleteClick();
         })
 
-        this._element.querySelector('.element__img').addEventListener('click', () => {
+        this._elementImg.addEventListener('click', () => {
             this._handleOpenPopup(this._name, this._image);
         })
     }
 
     _handleLikeClick() {
-        this._element.querySelector('.element__button').classList.toggle('element__button_active');
+       this._elementButton.classList.toggle('element__button_active');
     }
 
     _handleDeleteClick(){
@@ -39,12 +42,13 @@ export class Card{
 
     generateCard() {
         this._element = this._getTemplate();
+        this._setEventListener();
 
         this._element.querySelector('.element__title').textContent = this._name;
-        this._element.querySelector('.element__img').alt = this._name;
-        this._element.querySelector('.element__img').src = this._image;
+        this._elementImg .alt = this._name;
+        this._elementImg .src = this._image;
 
-        this._setEventListener();
+        
         return this._element;
     }
 }

@@ -81,13 +81,13 @@ initialCards.forEach((item) => {
 
 buttonEdit.addEventListener("click", function(){
   openPopup(popupProfile)
+  profileValidator.resetValidation();
   inputName.value = name.textContent;
   inputDescription.value = description.textContent;
 });
 buttonAdd.addEventListener("click", function(){
-  openPopup(popupNewCard)
-  buttonSave.setAttribute('disabled', true);
-  buttonSave.classList.add('popup__button-save_disabled')
+  openPopup(popupNewCard);
+  cardValidator.resetValidation()
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
