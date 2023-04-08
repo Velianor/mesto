@@ -1,6 +1,8 @@
 import { initialCards } from './content.js';
 import {Card} from './Card.js';
-import { FormValidator, enableValidation} from './FormValidator.js'
+import { FormValidator, enableValidation} from './FormValidator.js';
+import {Section} from './Section.js';
+import {} from './Popup.js';
 
 const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -73,10 +75,20 @@ popups.forEach((popup)=>{
   })
 })
 
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const cardElement = createCard(item);
+      cardsContainer.prepend(cardElement);
+    },
+  },
+  '.elements'
+);
 
-initialCards.forEach((item) => {
-  cardsContainer.append(createCard(item))
-})
+cardList.renderItems();
+
+
 
 
 buttonEdit.addEventListener("click", function(){
