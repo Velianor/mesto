@@ -15,7 +15,7 @@ export class Card{
         return cardElement;
     }
 
-    _setEventListener(){
+ _setEventListener(){
         this._elementButton = this._element.querySelector('.element__button');
         this._elementImg = this._element.querySelector('.element__img');
 
@@ -28,8 +28,8 @@ export class Card{
         })
 
         this._elementImg.addEventListener('click', () => {
-            this._handleOpenPopup(this._name, this._image);
-        })
+            this._handleOpenPopup({ name: this._name, link: this._image });
+          });
     }
 
     _handleLikeClick() {

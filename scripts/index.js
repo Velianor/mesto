@@ -3,6 +3,7 @@ import { Card } from './Card.js';
 import { FormValidator, enableValidation } from './FormValidator.js';
 import { Section } from './Section.js';
 import { Popup } from './Popup.js';
+import { PopupWithImage } from './PopupWithImage.js';
 
 const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -23,19 +24,14 @@ const cardValidator = new FormValidator(enableValidation, cardNewForm);
 
 const popupProfile = new Popup('.popup_type_profile');
 const popupNewCard = new Popup('.popup_type_new-card');
-const popupImageContainer = new Popup('.popup_type_image-popup');
+const popupImageContainer = new PopupWithImage('.popup_type_image-popup');
 const popups = [popupProfile, popupNewCard, popupImageContainer];
 
 popups.forEach((popup) => {
   popup.setEventListeners();
 });
 
-function openPopupImage(name, link) {
-  popupImage.src = link;
-  popupImage.alt = name;
-  popupImageTitle.textContent = name;
-  popupImageContainer.open();
-}
+
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -47,7 +43,7 @@ function handleProfileFormSubmit(evt) {
 }
 
 function createCard(item) {
-  const card = new Card(item, '#element-template', openPopupImage);
+  const card = new Card(item, '#element-template', popupImageContainer.open.bind(popupImageContainer));
   return card.generateCard();
 }
 
