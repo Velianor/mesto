@@ -80,5 +80,5 @@ popupProfile.setEventListeners();
 popupNewCard.setEventListeners();
 popupImageContainer.setEventListeners();
 
-profileValidator.validationConfig();
-cardValidator.validationConfig();
+profileValidator.enableValidation();
+cardValidator.enableValidation();

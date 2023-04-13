@@ -82,7 +82,7 @@ export class FormValidator {
     });
   }
 
- validationConfig() {
+  enableValidation() {
     this._setEventListeners();
 
   }
