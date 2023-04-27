@@ -7,8 +7,9 @@
     height: 19px;
     transition: 0.4s;
     margin-right: 4px;
-
-
+    right: 5px;
+    bottom: 10px;
+    position: absolute;
 }
 
 .element__button:hover {
