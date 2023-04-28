@@ -1,5 +1,4 @@
 
-
 export class FormValidator {
   constructor(setting, formElement) {
     this._setting = setting;
