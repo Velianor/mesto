@@ -63,15 +63,15 @@ export class Card {
   }
 
   isLiked() {
-    return this._like.some((data) => data._id === this._myId);
+    return this._like.some(data => data._id === this._myId);
   }
 
   addLike() {
-    this._elementLike.classList.add("element__button_active");
+    this._elementButtonLike.classList.add("element__button_active");
   }
 
   removeLike() {
-    this._elementLike.classList.remove("element__button_active");
+    this._elementButtonLike.classList.remove("element__button_active");
   }
 
   handleCardClick() {

@@ -16,19 +16,23 @@ export class FormValidator {
     const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
-    inputElement.classList.add(this._setting.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._setting.errorClass);
+    if (errorElement) {
+      inputElement.classList.add(this._setting.inputErrorClass);
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add(this._setting.errorClass);
+    }
   }
+  
 
   _hideInputError(inputElement) {
-    const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    inputElement.classList.remove(this._setting.inputErrorClass);
-    errorElement.classList.remove(this._setting.errorClass);
-    errorElement.textContent = "";
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    if (errorElement) {
+      inputElement.classList.remove(this._setting.inputErrorClass);
+      errorElement.classList.remove(this._setting.errorClass);
+      errorElement.textContent = "";
+    }
   }
+  
 
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {

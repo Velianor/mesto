@@ -14,7 +14,7 @@ export class PopupWithSubmit extends Popup {
     setEventListeners() {
         super.setEventListeners();
 
-        this._buttonDel.addEventListener('click', (evt) => {
+        this._buttonDelete.addEventListener('click', (evt) => {
             evt.preventDefault();
             this._handleSubmitCallback();
         });

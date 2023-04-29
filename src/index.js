@@ -55,14 +55,14 @@ function createCard(dataCard) {
           api
             .removeLike(card.getId())
             .then((res) => {
-              card.setLikeCounter(res.likes);
+              card.setLikeCheck(res.likes);
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
         } else {
           api
             .addLike(card.getId())
             .then((res) => {
-              card.setLikeCounter(res.likes);
+              card.setLikeCheck(res.likes);
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
         }
@@ -100,7 +100,7 @@ const popupProfile = new PopupWithForm(".popup_type_profile", {
     api
       .changeUserInfo(data)
       .then((data) => {
-        userInfo.setUserInfo({ name: data.name, info: data.about });
+        userInfo.setUserInfo({ username: data.name, info: data.about });
         popupProfile.close();
       })
       .catch((err) => alert(err))
@@ -122,7 +122,7 @@ const popupNewCard = new PopupWithForm(".popup_type_new-card", {
 
       .catch((err) => alert(err))
       .finally(() => {
-        popupCard.renderLoading(false);
+        popupNewCard.renderLoading(false);
       });
   },
 });
@@ -175,7 +175,7 @@ avatarValidator.enableValidation();
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([data, card]) => {
-    userInfo.setUserInfo({ name: data.name, info: data.about });
+    userInfo.setUserInfo({ username: data.name, info: data.about });
     userInfo.setUserAvatar({ avatar: data.avatar });
     myId = data._id;
     cardSection.renderCards(card);
