@@ -29,7 +29,7 @@ const popupImageContainer = new PopupWithImage(".popup_type_image-popup");
 const userInfo = new UserInfo(
   ".profile__name",
   ".profile__description",
-  ".profile-avatar"
+  ".profile__avatar"
 );
 
 let myId = "";
@@ -48,7 +48,7 @@ function createCard(dataCard) {
     myId,
     {
       handleCardClick: (name, link) => {
-        popupImage.open(name, link);
+        popupImageContainer.open(name, link);
       },
       handleLikeIconClick: () => {
         if (card.isLiked()) {
@@ -68,13 +68,13 @@ function createCard(dataCard) {
         }
       },
       handleDeleteIconClick: () => {
-        cardInfoSubmit.open();
-        cardInfoSubmit.setSumbitAction(() => {
+        popupDelete.open();
+        popupDelete.setSumbitAction(() => {
           api
             .deleteCard(card.getId())
             .then(() => {
               card.deleteCard();
-              cardInfoSubmit.close();
+              popupDelete.close();
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
         });
@@ -88,8 +88,8 @@ function createCard(dataCard) {
 const cardSection = new Section(
   {
     renderItems: (dataCard) => {
-      cardSection.addItem(createCard(dataCard));
-    },
+      cardSection.render(createCard(dataCard));
+    }
   },
   ".elements"
 );
@@ -179,5 +179,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     userInfo.setUserAvatar({ avatar: data.avatar });
     myId = data._id;
     cardSection.renderCards(card);
+    
   })
-  .catch((err) => alert(err));
+  .catch((err) => alert(err + 'ошибка Promise'));

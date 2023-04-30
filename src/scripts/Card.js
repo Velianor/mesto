@@ -16,6 +16,7 @@ export class Card {
     this._myId = myId;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    
   }
 
   _getTemplate() {
@@ -37,12 +38,13 @@ export class Card {
     this._elementImg.alt = this._name;
     this._elementImg.src = this._image;
 
-    this._setEventListener();
     this.setLikeCheck(this._like);
+    this._setEventListener();
+    
 
     if (this._ownerId !== this._myId) {
-      this._elementDelete.remove();
-    }
+      this._elementDelete.remove()
+    };
 
     return this._element;
   }
@@ -63,7 +65,7 @@ export class Card {
   }
 
   isLiked() {
-    return this._like.some(data => data._id === this._myId);
+    return this._like.some((data) => data._id === this._myId);
   }
 
   addLike() {

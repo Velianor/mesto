@@ -32,8 +32,8 @@ export class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: data.username,
-        about: data.job,
-      }),
+        about: data.info,
+      })
     }).then(this._checkResponse);
   }
 
@@ -44,7 +44,7 @@ export class Api {
       body: JSON.stringify({
         name: data.name,
         link: data.link,
-      }),
+      })
     }).then(this._checkResponse);
   }
 
@@ -54,7 +54,7 @@ export class Api {
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
-      }),
+      })
     }).then(this._checkResponse);
   }
 
