@@ -33,6 +33,7 @@ export class Card {
     this._elementButtonLike = this._element.querySelector(".element__button");
     this._elementImg = this._element.querySelector(".element__img");
     this._elementDelete = this._element.querySelector(".element__delete");
+    this._likeCheck = this._element.querySelector(".element__button-check");
 
     this._element.querySelector(".element__title").textContent = this._name;
     this._elementImg.alt = this._name;
@@ -55,7 +56,6 @@ export class Card {
 
   setLikeCheck(arrLikes) {
     this._like = arrLikes;
-    this._likeCheck = this._element.querySelector(".element__button-check");
     this._likeCheck.textContent = this._like.length;
     if (this.isLiked()) {
       this.addLike();

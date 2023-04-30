@@ -1,13 +1,13 @@
-import "./pages/index.css";
-import { Card } from "./scripts/Card.js";
-import { validationConfig } from "./utils/constants.js";
-import { FormValidator } from "./scripts/FormValidator.js";
-import { Section } from "./scripts/Section.js";
-import { PopupWithImage } from "./scripts/PopupWithImage.js";
-import { PopupWithForm } from "./scripts/PopupWithForm.js";
-import { PopupWithSubmit } from "./scripts/PopupWithSubmit.js";
-import { UserInfo } from "./scripts/UserInfo.js";
-import { Api } from "./scripts/Api.js";
+import "./index.css";
+import { Card } from "../scripts/Card.js";
+import { validationConfig } from "../utils/constants.js";
+import { FormValidator } from "../scripts/FormValidator.js";
+import { Section } from "../scripts/Section.js";
+import { PopupWithImage } from "../scripts/PopupWithImage.js";
+import { PopupWithForm } from "../scripts/PopupWithForm.js";
+import { PopupWithSubmit } from "../scripts/PopupWithSubmit.js";
+import { UserInfo } from "../scripts/UserInfo.js";
+import { Api } from "../scripts/Api.js";
 
 const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector(".profile__add-button");
@@ -87,8 +87,8 @@ function createCard(dataCard) {
 
 const cardSection = new Section(
   {
-    renderItems: (dataCard) => {
-      cardSection.render(createCard(dataCard));
+    renderer: (dataCard) => {
+      cardSection.addItem(createCard(dataCard));
     }
   },
   ".elements"
@@ -116,7 +116,7 @@ const popupNewCard = new PopupWithForm(".popup_type_new-card", {
     api
       .addNewCard({ name, link })
       .then((item) => {
-        cardSection.render(createCard(item));
+        cardSection.addItem(createCard(item));
         popupNewCard.close();
       })
 
@@ -178,7 +178,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     userInfo.setUserInfo({ username: data.name, info: data.about });
     userInfo.setUserAvatar({ avatar: data.avatar });
     myId = data._id;
-    cardSection.renderCards(card);
+    cardSection.renderItems(card);
     
   })
   .catch((err) => alert(err + 'ошибка Promise'));
